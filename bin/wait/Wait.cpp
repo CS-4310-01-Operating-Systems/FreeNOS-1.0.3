@@ -31,14 +31,3 @@ Wait::Result Wait::exec()
     // Done
     return Success;
 }
-// we can replace waitpid() and checking the integer value with Result
-// wait(ProcessID id); and checking the result Success, InvalidArgument, 
-// MemoryMapError, OutOfMemory, WakeupPending)
-    /**
-     * Let Process wait for other Process to terminate.
-     *
-     * @param id Process ID to wait for
-     *
-     * @return Result code
-     */
- //   Result wait(pid);
