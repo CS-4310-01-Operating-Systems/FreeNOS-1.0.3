@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include "Wait.h"
 #include "sys/wait.h"
+#include <ProcessClient.h>
+#include <Macros.h>
 
 Wait::Wait(int argc, char **argv)
     : POSIXApplication(argc, argv)
@@ -19,6 +21,25 @@ Wait::~Wait()
 
 Wait::Result Wait::exec()
 {
+    const ProcessClient process;
+    ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
+    
+    ProcessClient::Info info;
+    const ProcessClient::Result result = process.processInfo(pid, info);
+    
+    if (result == ProcessClient::Success) {
+        waitpid(pid, 0, 0);        
+    } else {
+        // using FreeNOS convention for printing errors
+        ERROR("No process with ID '" << arguments().get("PROCESS_ID"))
+        return InvalidArgument;
+    }
+    
+    // if waiting was successful
+    return Success;
+    
+    /*
+    
     pid_t pid = (atoi(arguments().get("PID")));
     // Wait now
     if (pid.getState() == Success) {
@@ -26,6 +47,9 @@ Wait::Result Wait::exec()
     } else {
         ERROR("failed to Wait: " << arguments().get("PROCESS_ID"));
         return InvalidArgument;
+    
+    */
+        
     }
 
     // Done
