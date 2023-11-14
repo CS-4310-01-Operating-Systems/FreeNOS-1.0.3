@@ -39,7 +39,7 @@ typedef enum ProcessOperation
     Spawn = 0,
     KillPID,
     GetPID,
-    GetPriority
+    GetPriority,
     GetParent,
     WatchIRQ,
     EnableIRQ,
