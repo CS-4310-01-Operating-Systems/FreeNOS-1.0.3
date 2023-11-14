@@ -113,19 +113,27 @@ void Process::setParent(ProcessID id)
     m_parent = id;
 }
 
-void Process::setPriority(Priority priority)
-{
+Process::Result Process::setPriority(int priority) {
+    if(priority > 5 || priority < 1) {
+        ERROR("Invalid priority level: " << priority);
+        return InvalidArgument;
+    }
+
     m_priority = (Priority) priority;
+    return Success;
 }
 
 Process::Result Process::wait(ProcessID id)
 {
-    if(priority > 5 || priority < 1) 
+    if (m_state != Ready)
     {
-        ERROR("Invalid priority: " << priority);
+        ERROR("Process ID " << m_id << " has invalid state: " << (uint) m_state);
         return InvalidArgument;
     }
-    m_priority = (Priority) priority;
+
+    m_state  = Waiting;
+    m_waitId = id;
+
     return Success;
 }
 
@@ -140,7 +148,7 @@ Process::Result Process::join(const uint result)
     m_waitResult = result;
     m_state = Ready;
     return Success;
-}
+}}
 
 Process::Result Process::stop()
 {
