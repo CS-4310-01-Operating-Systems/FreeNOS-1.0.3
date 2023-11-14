@@ -37,21 +37,4 @@ Wait::Result Wait::exec()
     
     // if waiting was successful
     return Success;
-    
-    /*
-    
-    pid_t pid = (atoi(arguments().get("PID")));
-    // Wait now
-    if (pid.getState() == Success) {
-        waitpid(pid, 0, 0);        
-    } else {
-        ERROR("failed to Wait: " << arguments().get("PROCESS_ID"));
-        return InvalidArgument;
-    
-    */
-        
-    }
-
-    // Done
-    return Success;
 }
