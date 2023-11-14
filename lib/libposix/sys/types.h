@@ -31,6 +31,9 @@
 /** Used for process IDs and process group IDs. */
 typedef ProcessID pid_t;
 
+/** Used for priority. */
+typedef ProcessID priority_t;
+
 /** Used for sizes of objects. */
 typedef Size size_t;
 
