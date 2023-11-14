@@ -115,20 +115,17 @@ void Process::setParent(ProcessID id)
 
 void Process::setPriority(Priority priority)
 {
-    m_priority = priority;
+    m_priority = (Priority) priority;
 }
 
 Process::Result Process::wait(ProcessID id)
 {
-    if (m_state != Ready)
+    if(priority > 5 || priority < 1) 
     {
-        ERROR("Process ID " << m_id << " has invalid state: " << (uint) m_state);
+        ERROR("Invalid priority: " << priority);
         return InvalidArgument;
     }
-
-    m_state  = Waiting;
-    m_waitId = id;
-
+    m_priority = (Priority) priority;
     return Success;
 }
 
