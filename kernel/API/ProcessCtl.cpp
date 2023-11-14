@@ -136,6 +136,7 @@ API::Result ProcessCtlHandler(const ProcessID procID,
 
     case InfoPID:
         info->id    = proc->getID();
+        info->priority = proc->getPriority();
         info->state = proc->getState();
         info->parent = proc->getParent();
         break;
