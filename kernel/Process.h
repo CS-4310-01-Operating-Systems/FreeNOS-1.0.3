@@ -95,6 +95,13 @@ class Process
      */
     ProcessID getID() const;
 
+   /**
+     * Retrieve priority.
+     *
+     * @return Priority.
+     */
+    Priority getPriority();
+
     /**
      * Retrieve our parent ID.
      *
