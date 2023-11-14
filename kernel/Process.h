@@ -248,7 +248,7 @@ class Process
      */
     void setParent(ProcessID id);
 
-    void setPriority(sint priority);
+    void setPriority(Priority priority);
 
   protected:
 
