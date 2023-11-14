@@ -67,7 +67,7 @@ typedef struct ProcessInfo
     ProcessID id;
 
     /** priority of process. */
-    ProcessID priority;
+    Process::Priority priority;
 
     /** Parent process id. */
     ProcessID parent;
