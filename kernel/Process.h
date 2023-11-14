@@ -248,13 +248,19 @@ class Process
      */
     void setParent(ProcessID id);
 
+    /**
+     * Set priority
+     */
     void setPriority(Priority priority);
 
   protected:
 
     /** Process Identifier */
     const ProcessID m_id;
-
+    
+    /** Priority */
+    Priority m_priority;
+    
     /** Parent process */
     ProcessID m_parent;
 
