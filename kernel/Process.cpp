@@ -113,7 +113,7 @@ void Process::setParent(ProcessID id)
     m_parent = id;
 }
 
-void Process::setPriority(sint priority)
+void Process::setPriority(Priority priority)
 {
     m_priority = priority;
 }
