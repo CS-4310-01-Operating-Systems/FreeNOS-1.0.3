@@ -63,15 +63,14 @@ ProcessID Process::getID() const
     return m_id;
 }
 
+ProcessID Process::getParent() const
+{
+    return m_parent;
+}
 
 ProcessID Process::getPriority() const
 {
     return m_priority;
-}
-
-ProcessID Process::getParent() const
-{
-    return m_parent;
 }
 
 ProcessID Process::getWait() const
