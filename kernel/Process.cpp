@@ -28,7 +28,7 @@ Process::Process(ProcessID id, Address entry, bool privileged, const MemoryMap &
 {
     m_state         = Stopped;
     m_parent        = 0;
-    m_priority      = 3;
+    m_priority      = priority;
     m_waitId        = 0;
     m_waitResult    = 0;
     m_wakeups       = 0;
@@ -68,7 +68,7 @@ ProcessID Process::getParent() const
     return m_parent;
 }
 
-ProcessID Process::getPriority() const
+ProcessID Process::getPriority()
 {
     return m_priority;
 }
@@ -115,7 +115,7 @@ void Process::setParent(ProcessID id)
 
 Process::Result Process::setPriority(int priority) {
     if(priority > 5 || priority < 1) {
-        ERROR("Invalid priority level: " << priority);
+        ERROR("Invalid priority: " << priority);
         return InvalidArgument;
     }
 
