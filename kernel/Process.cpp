@@ -149,7 +149,7 @@ Process::Result Process::join(const uint result)
     m_waitResult = result;
     m_state = Ready;
     return Success;
-}}
+}
 
 Process::Result Process::stop()
 {
