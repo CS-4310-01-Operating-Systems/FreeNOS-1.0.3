@@ -49,6 +49,14 @@ class Process
   public:
 
     /**
+     * Represents Priority
+     */
+    enum Priority
+    {
+        priority = 3
+    };
+
+    /**
      * Result codes
      */
     enum Result
