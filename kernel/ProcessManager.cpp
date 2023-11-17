@@ -334,7 +334,7 @@ ProcessManager::Result ProcessManager::changePriority(Process *proc, int priorit
         {
             FATAL("failed to enqueue PID " << proc->getID());
         }
-        if(m_scheduler->setPriority(priority) != Process::Success)
+        if(proc->setPriority(priority) != Process::Success)
         {
             FATAL("failed to set priority of PID " << proc->getID());
         }
