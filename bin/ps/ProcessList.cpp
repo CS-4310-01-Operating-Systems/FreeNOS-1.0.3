@@ -44,7 +44,7 @@ ProcessList::Result ProcessList::exec()
         if (result == ProcessClient::Success)
         {
             DEBUG("PID " << pid << " state = " << *info.textState);
-            if (arguments().get("priority))
+            if (arguments().get("priority"))
             {
                  // Print header
                 out << "ID  PRIORITY  PARENT  USER GROUP STATUS     CMD\r\n";
