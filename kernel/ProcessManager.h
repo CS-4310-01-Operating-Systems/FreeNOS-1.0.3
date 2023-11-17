@@ -157,6 +157,16 @@ class ProcessManager
      *
      * @return Result code
      */
+
+    /*
+    * Changes the priority of a process
+     *
+     * @param proc Process pointer
+     * @param proc Priority priority level
+     * @return Result 
+    */
+    Result changePriority(Process *proc, int priority);
+
     Result wakeup(Process *proc);
 
     /**
