@@ -341,8 +341,10 @@ ProcessManager::Result ProcessManager::changePriority(Process *proc, int priorit
     } 
     else 
     {
-        if((m_scheduler->setPriority(priority) != Process::Success)
+        if(proc->setPriority(priority) != Process::Success)
+        {
             FATAL("failed to set priority of PID" << proc->getID());
+        }
     }
     return Success;
 }
