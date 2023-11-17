@@ -324,21 +324,26 @@ ProcessManager::Result ProcessManager::wakeup(Process *proc)
 
 ProcessManager::Result ProcessManager::changePriority(Process *proc, int priority)
 {
-    if(proc->getState() == Process::Ready){
-        if(m_scheduler->dequeue(proc, true) != Scheduler::Success){
+    if(proc->getState() == Process::Ready)
+    {
+        if(m_scheduler->dequeue(proc, true) != Scheduler::Success)
+        {
             FATAL("failed to dequeue PID " << proc->getID());
         }
-        if(m_scheduler->enqueue(proc, true) != Scheduler::Success){
+        if(m_scheduler->enqueue(proc, true) != Scheduler::Success)
+        {
             FATAL("failed to enqueue PID " << proc->getID());
         }
-        if(m_scheduler->setPriority(priority) != Process::Success){
+        if(m_scheduler->setPriority(priority) != Process::Success)
+        {
             FATAL("failed to set priority of PID " << proc->getID());
         }
-    } else {
-            if((m_scheduler->setPriority(priority) != Process::Success){
-                FATAL("failed to set priority of PID" << proc->getID());
-            }
-        }
+    } 
+    else 
+    {
+        if((m_scheduler->setPriority(priority) != Process::Success)
+            FATAL("failed to set priority of PID" << proc->getID());
+    }
     return Success;
 }
 
