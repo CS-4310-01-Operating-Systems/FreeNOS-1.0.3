@@ -108,7 +108,7 @@ class Process
      *
      * @return Priority.
      */
-    Priority getPriority();
+    Priority getPriority() const;
 
     /**
      * Retrieve our parent ID.
