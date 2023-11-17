@@ -68,7 +68,7 @@ ProcessID Process::getParent() const
     return m_parent;
 }
 
-Process::Priority Process::getPriority() 
+Process::Priority Process::getPriority() const
 {
     return m_priority;
 }
