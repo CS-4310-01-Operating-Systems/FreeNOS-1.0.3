@@ -1,4 +1,4 @@
-#include "sys/renice.h"
+#include "sys/renicepid.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
