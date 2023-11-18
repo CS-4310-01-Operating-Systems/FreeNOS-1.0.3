@@ -1,6 +1,6 @@
+#include <FreeNOS/User.h>
 #include "sys/renice.h"
 #include "sys/types.h"
-#include <FreeNOS/User.h>
 #include <errno.h>
 
 pid_t renicepid(pid_t pid, int priority, int *stat_loc, int options)
