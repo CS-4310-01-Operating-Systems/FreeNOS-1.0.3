@@ -25,7 +25,7 @@ Renice::Result Renice::exec()
        if (arguments().get("priority")){
         const ProcessClient process; 
         ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
-        int priority = (atoi(arguments().get(PRIORITY")));
+        int priority = (atoi(arguments().get("PRIORITY")));
 
         ProcessClient::Info info; 
         const ProcessClient::Result result = process.processInfo(pid, info); 
@@ -38,7 +38,7 @@ Renice::Result Renice::exec()
 
         // check that the new priority is valid
         if(priority >= 1 && priority <= 5) {
-            INFO("Process " << pid << "'s priority has been updated to " << priority");
+            INFO("Process " << pid << "'s priority has been updated to " << priority);
             return Success;
 
         } else {
