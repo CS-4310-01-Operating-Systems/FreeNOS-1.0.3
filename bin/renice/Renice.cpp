@@ -31,12 +31,6 @@ Renice::Result Renice::exec()
        ProcessClient::Info info; 
        const ProcessClient::Result result = process.processInfo(pid, info); 
 
-       if(result != ProcessClient::Success) 
-        {
-            //checks if the process exists or not
-            ERROR("No process of ID '" << pid << "' is found")
-            return InvalidArgument;
-        }
         // check that the new priority is valid
         if(result != ProcessClient::Success) 
         {
