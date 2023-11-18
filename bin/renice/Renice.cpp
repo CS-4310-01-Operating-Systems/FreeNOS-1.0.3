@@ -22,32 +22,35 @@ Renice::~Renice()
 
 Renice::Result Renice::exec()
 { 
-       if (arguments().get("priority")){
-        const ProcessClient process; 
-        ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
-        int priority = (atoi(arguments().get("PRIORITY")));
+    if (arguments().get("priority"))
+   {
+       const ProcessClient process; 
+       ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
+       int priority = (atoi(arguments().get("PRIORITY")));
+       
+       ProcessClient::Info info; 
+       const ProcessClient::Result result = process.processInfo(pid, info); 
 
-        ProcessClient::Info info; 
-        const ProcessClient::Result result = process.processInfo(pid, info); 
-
-        if(result != ProcessClient::Success) {
+       if(result != ProcessClient::Success) 
+        {
             //checks if the process exists or not
             ERROR("No process of ID '" << pid << "' is found")
             return InvalidArgument;
         }
         // check that the new priority is valid
-        if(result != ProcessClient::Success) {
+        if(result != ProcessClient::Success) 
+        {
             ERROR("No process of ID '" << pid << "' is found")
             return InvalidArgument;
         }
-
         // check that the new priority is valid
-        if(priority > 5 || priority < 1) {
+        if(priority > 5 || priority < 1) 
+        {
             ERROR("Failed to set priority for process " << pid)
             return InvalidArgument;
         }
-        renicepid(pid, priority, 0, 0);
-        printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
+       renicepid(pid, priority, 0, 0);
+       printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
     }
     return Success;
 }
