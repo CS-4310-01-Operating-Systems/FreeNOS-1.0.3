@@ -1,4 +1,5 @@
 #include "sys/renice.h"
+#include "sys/renice/renicepid.cpp"
 #include <stdio.h>
 #include <unistd.h>
 #include "Renice.h"
