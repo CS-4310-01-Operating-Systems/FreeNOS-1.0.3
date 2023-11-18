@@ -35,18 +35,19 @@ Renice::Result Renice::exec()
             ERROR("No process of ID '" << pid << "' is found")
             return InvalidArgument;
         }
-
         // check that the new priority is valid
-        if(priority >= 1 && priority <= 5) {
-            INFO("Process " << pid << "'s priority has been updated to " << priority);
-            renicepid(pid, priority, 0, 0);
-            printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
-        } else {
-            ERROR("Invalid priority level. Failed to set priority for process " << pid)
+        if(result != ProcessClient::Success) {
+            ERROR("No process of ID '" << pid << "' is found")
             return InvalidArgument;
         }
 
+        // check that the new priority is valid
+        if(priority > 5 || priority < 1) {
+            ERROR("Failed to set priority for process " << pid)
+            return InvalidArgument;
+        }
+        renicepid(pid, priority, 0, 0);
+        printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
     }
-    // Done
     return Success;
 }
