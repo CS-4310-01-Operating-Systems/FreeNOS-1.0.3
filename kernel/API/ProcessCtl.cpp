@@ -126,6 +126,12 @@ API::Result ProcessCtlHandler(const ProcessID procID,
         Kernel::instance()->enableIRQ(addr, true);
         break;
 
+    case RenicePID:
+        procs->changePriority(proc, addr);
+        procs->schedule();
+        break;
+
+
     case DisableIRQ:
         Kernel::instance()->enableIRQ(addr, false);
         break;
@@ -197,6 +203,7 @@ Log & operator << (Log &log, ProcessOperation op)
         case GetParent: log.append("GetParent"); break;
         case WatchIRQ:  log.append("WatchIRQ"); break;
         case EnableIRQ: log.append("EnableIRQ"); break;
+        case RenicePID: log.append("RenicePID"); break;
         case DisableIRQ:log.append("DisableIRQ"); break;
         case InfoPID:   log.append("InfoPID"); break;
         case WaitPID:   log.append("WaitPID"); break;
