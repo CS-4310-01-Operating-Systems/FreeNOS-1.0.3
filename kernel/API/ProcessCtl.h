@@ -43,6 +43,7 @@ typedef enum ProcessOperation
     GetParent,
     WatchIRQ,
     EnableIRQ,
+    RenicePID,
     DisableIRQ,
     SendIRQ,
     InfoPID,
