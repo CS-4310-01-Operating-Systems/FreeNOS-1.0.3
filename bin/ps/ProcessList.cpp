@@ -46,7 +46,7 @@ ProcessList::Result ProcessList::exec()
     {
         ProcessClient::Info info;
 
-        const ProcessClient::Result result = process.processInfo(pid, info);
+        const ProcessClient::Result result = process.ProcessInfo(pid, info);
         if (result == ProcessClient::Success)
         {
             DEBUG("PID " << pid << " state = " << *info.textState);
