@@ -39,7 +39,6 @@ Renice::Result Renice::exec()
         if(priority >= 1 && priority <= 5) 
         {
             INFO("Process " << pid << "'s priority has been updated to " << priority);
-            return Success;
         } 
         else 
         {
