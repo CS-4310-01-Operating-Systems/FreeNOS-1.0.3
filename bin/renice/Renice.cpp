@@ -49,6 +49,6 @@ Renice::Result Renice::exec()
             return InvalidArgument;
         }
     }
-    ERROR("Invalid try. Failed to set priority for process " << pid)
+    ERROR("Invalid try. Failed to set priority for process")
     return Success;
 }
