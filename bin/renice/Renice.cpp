@@ -25,7 +25,6 @@ Renice::Result Renice::exec()
         const ProcessClient process; 
         ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
         int priority = (atoi(arguments().get("PRIORITY")));
-        std::cout << "getting priority."
         
         ProcessClient::Info info; 
         const ProcessClient::Result result = process.processInfo(pid, info); 
