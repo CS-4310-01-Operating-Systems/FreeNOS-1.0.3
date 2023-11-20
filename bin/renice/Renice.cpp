@@ -39,14 +39,15 @@ Renice::Result Renice::exec()
         if(priority >= 1 && priority <= 5) 
         {
             INFO("Process " << pid << "'s priority has been updated to " << priority);
+            renicepid(pid, priority, 0, 0);
+            printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
+            return Success;
         } 
         else 
         {
             ERROR("Invalid priority level. Failed to set priority for process " << pid)
             return InvalidArgument;
         }
-        renicepid(pid, priority, 0, 0);
-        printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
     }
     ERROR("Invalid try. Failed to set priority for process " << pid)
     return Success;
