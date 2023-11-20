@@ -21,15 +21,15 @@ Renice::~Renice()
 }
 
 Renice::Result Renice::exec()
-{ 
+{
     if (arguments().get("priority"))
-   {
-       const ProcessClient process; 
-       ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
-       int priority = (atoi(arguments().get("PRIORITY")));
-       
-       ProcessClient::Info info; 
-       const ProcessClient::Result result = process.processInfo(pid, info); 
+    {
+        const ProcessClient process; 
+        ProcessID pid = (atoi(arguments().get("PROCESS_ID")));
+        int priority = (atoi(arguments().get("PRIORITY")));
+        
+        ProcessClient::Info info; 
+        const ProcessClient::Result result = process.processInfo(pid, info); 
 
         // check that the new priority is valid
         if(result != ProcessClient::Success) 
@@ -38,16 +38,18 @@ Renice::Result Renice::exec()
             return InvalidArgument;
         }
         // check that the new priority is valid
-        if(priority >= 1 && priority <= 5) {
+        if(priority >= 1 && priority <= 5) 
+        {
             INFO("Process " << pid << "'s priority has been updated to " << priority);
             return Success;
         } 
-        else {
+        else 
+        {
             ERROR("Invalid priority level. Failed to set priority for process " << pid)
             return InvalidArgument;
         }
-       renicepid(pid, priority, 0, 0);
-       printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
+        renicepid(pid, priority, 0, 0);
+        printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
     }
     return Success;
 }
