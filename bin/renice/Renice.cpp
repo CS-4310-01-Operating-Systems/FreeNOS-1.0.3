@@ -28,7 +28,7 @@ Renice::Result Renice::exec()
         INFO ("getting priority.")
         
         ProcessClient::Info info; 
-        const ProcessClient::Result result = process.processInfo(pid, info); 
+        const ProcessClient::Result result = process.ProcessInfo(pid, info); 
 
         // check that the new priority is valid
         if(result != ProcessClient::Success) 
