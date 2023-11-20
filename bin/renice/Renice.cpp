@@ -49,5 +49,6 @@ Renice::Result Renice::exec()
         renicepid(pid, priority, 0, 0);
         printf("process %d set to priority %d, from priority %d\n", pid, priority, info.kernelState.priority);
     }
+    ERROR("Invalid try. Failed to set priority for process " << pid)
     return Success;
 }
