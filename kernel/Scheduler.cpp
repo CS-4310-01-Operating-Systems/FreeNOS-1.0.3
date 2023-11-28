@@ -30,7 +30,7 @@ Size Scheduler::count() const
     for(int i = 0; i < 5; i++){
         count += m_queue[i].count();
     }
-    return count();
+    return count;
 }
 
 //original enqueue method
