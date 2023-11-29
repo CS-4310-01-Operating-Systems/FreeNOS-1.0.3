@@ -1,6 +1,10 @@
-# Under bin/wait/ are the wait files
+Project 3: FreeNOS-1.0.3
+Group members: Anushka Venkatesh, Hailee Wheat
+Video demonstration of renice, ps, and process scheduling
+Video Demonstration
 
-## Features of wait
-- [x] Takes Process ID as parameter
-- [x] Waits for process such as sleep to finish
-- [x] Allows the terminal to not respond until the process, such as sleep, finishes 
+Developed a way to display and change a process' priority level.
+Added support in FreeNOS kernel and system libraries for priority-based scheduling. features^ All of our updated code for this project is within the "priority" branch
+Our code for "renice" is under bin/renice
+Our code for "ps" is under bin/ps
+Our code for the sceduling is under kernel/Scheduler.cpp
