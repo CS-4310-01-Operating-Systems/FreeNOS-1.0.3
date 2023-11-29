@@ -1,11 +1,11 @@
-# Group members: Anushka Venkatesh, Hailee Wheat, Youstina Gerges
-#### Project 2: FreeNOS-1.0.3
+# Project 2: FreeNOS-1.0.3
+#### Group members: Anushka Venkatesh, Hailee Wheat, Youstina Gerges
 ## Video demonstration of wait:
 [Video Demonstration](https://www.youtube.com/watch?v=lcMfbBbgteU)
 ## View wait branch to see our code for Wait.cpp under bin/wait/Wait.cpp
 
-#### Project 3: FreeNOS-1.0.3
-# Group members: Anushka Venkatesh, Hailee Wheat
+# Project 3: FreeNOS-1.0.3
+##### Group members: Anushka Venkatesh, Hailee Wheat
 ## Video demonstration of renice, ps, and process scheduling 
 [Video Demonstration]()
 - Developed a way to display and change a process' priority level.
